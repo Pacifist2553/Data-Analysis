@@ -60,7 +60,7 @@ makedate()
 head(mydate)
 tail(mydate)
 
-# 4. URL 생성(지상파 채널만 해당하는 URL)
+# 3. URL 생성(지상파 채널만 해당하는 URL)
 # 만일, 다른 공중파 채널을 크롤링하고 싶으면 URL만 변경하면 됨.
 url.nielsen <- NULL
 for(i in 1:length(mydate)) {
@@ -70,7 +70,7 @@ for(i in 1:length(mydate)) {
 head(url.nielsen)
 tail(url.nielsen)
 
-# 5. 크롤링 진행(정보 수집)
+# 4. 크롤링 진행(정보 수집)
 s.rank <- NULL; s.broadcast <- NULL; s.program <- NULL; s.percent <- NULL
 
 for(i in 1:length(mydate)) {
@@ -86,11 +86,11 @@ for(i in 1:length(mydate)) {
   s.percent <- c(s.percent, as.numeric(rate), as.numeric(rate2))
 }
 
-# 6. 데이터 프레임 제작
+# 5. 데이터 프레임 제작
 result <- rep(mydate, each = 20)
 result <- cbind(result, s.rank, s.broadcast, s.program, s.percent)
 colnames(result) <- c("date", "rank", "broadcast", "program", "percent")
 View(result)
 
-# 7. csv file 제작
+# 6. csv file 제작
 write.csv(result, file = "tv_rate.csv", row.names = TRUE)
