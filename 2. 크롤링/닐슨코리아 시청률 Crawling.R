@@ -17,6 +17,7 @@ library(stringr)
 if(!require(dplyr)) {
   install.packages("dplyr")
 }
+library(dplyr)ㅣ
 
 # 2. 날짜 설정(2013.01.01 ~ 2016.12.31)
 # 필요시, 밑에 적힌 함수에 s(start)와 e(end) 부분의 숫자를 수정하면 됨.
